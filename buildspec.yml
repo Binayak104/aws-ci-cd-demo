@@ -5,17 +5,15 @@ phases:
     runtime-versions:
       nodejs: 16
     commands:
-      - echo "Node.js version"
-      - node -v
+      - echo "Installing Node.js dependencies"
+      - npm install
   build:
     commands:
-      - echo "Running build phase"
-      - node app.js  # Only for demo, remove in prod
+      - echo "Build complete"
   post_build:
     commands:
-      - echo "✅ Build completed successfully"
+      - echo "Build phase finished"
 
 artifacts:
   files:
-    - app.js
-    - buildspec.yml
+    - '**/*'
