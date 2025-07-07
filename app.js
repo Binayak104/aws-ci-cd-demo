@@ -1,2 +1,9 @@
-// app.js
-console.log("Hello from AWS CodeBuild + GitHub!");
+const http = require('http');
+const PORT = 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello from AWS CodePipeline CI/CD!\n');
+}).listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
