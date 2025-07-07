@@ -2,18 +2,20 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 16
     commands:
-      - echo "Installing Node.js"
-      - curl -sL https://rpm.nodesource.com/setup_16.x | bash -
-      - yum install -y nodejs
+      - echo "Node.js version"
+      - node -v
   build:
     commands:
-      - echo "Running the app"
-      - node app.js
+      - echo "Running build phase"
+      - node app.js  # Only for demo, remove in prod
   post_build:
     commands:
-      - echo "Build completed successfully"
+      - echo "✅ Build completed successfully"
 
 artifacts:
   files:
-    - '**/*'
+    - app.js
+    - buildspec.yml
