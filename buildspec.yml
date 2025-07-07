@@ -3,13 +3,16 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing dependencies"
+      - echo "Installing Node.js"
+      - curl -sL https://rpm.nodesource.com/setup_16.x | bash -
+      - yum install -y nodejs
   build:
     commands:
-      - echo "Building the app"
+      - echo "Running the app"
+      - node app.js
   post_build:
     commands:
-      - echo "Build completed"
+      - echo "Build completed successfully"
 
 artifacts:
   files:
